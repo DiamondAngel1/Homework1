@@ -34,6 +34,10 @@ int CountIdent(char* user, const char* wordSearch, const char* pattern) {
     return count;
 }
 
+void Print(const char* wordSearch, int count) {
+    cout << "Слово \"" << wordSearch << "\" зустрічається " << count << " рази." << endl;
+}
+
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -43,6 +47,7 @@ int main() {
     const char* pattern = " .,!?;:";
     UserInput(user, wordSearch, max, 50);
     int count = CountIdent(user, wordSearch, pattern);
+    Print(wordSearch, count);
 
     return 0;
 }
