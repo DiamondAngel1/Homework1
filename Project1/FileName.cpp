@@ -22,6 +22,18 @@ bool Ident(const char* word1, const char* word2) {
     return true;
 }
 
+int CountIdent(char* user, const char* wordSearch, const char* pattern) {
+    int count = 0;
+    char* word = strtok(user, pattern);
+    while (word != nullptr) {
+        if (Ident(word, wordSearch)) {
+            count++;
+        }
+        word = strtok(nullptr, pattern);
+    }
+    return count;
+}
+
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -30,6 +42,7 @@ int main() {
     char wordSearch[50];
     const char* pattern = " .,!?;:";
     UserInput(user, wordSearch, max, 50);
+    int count = CountIdent(user, wordSearch, pattern);
 
     return 0;
 }
