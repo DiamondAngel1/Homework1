@@ -11,6 +11,17 @@ void UserInput(char* user, char* wordSearch, int maxUserLength, int maxWordLengt
     cin.getline(wordSearch, maxWordLength);
 }
 
+bool Ident(const char* word1, const char* word2) {
+    while (*word1 && *word2) {
+        if (*word1 != *word2) {
+            return false;
+        }
+        word1++;
+        word2++;
+    }
+    return true;
+}
+
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
